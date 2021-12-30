@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/learostagno/Hotertermaldolores---RostagnoLeandro#readme",
   "dependencies": {
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.1",
     "nodemon": "^2.0.15"
   }
 }

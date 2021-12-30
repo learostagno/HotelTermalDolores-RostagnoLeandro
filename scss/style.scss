@@ -1,24 +1,25 @@
+$colores: (blanco: "#ffffff", negro: "black", turquesa: "cadetblue", feb:"#ffebcd", fe4: "ffe4b8");
+@mixin flex ($dir, $jus, $alg){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jus;
+    align-items: $alg;     
+     }
 /* Arranca header */
 
 .headerleft{
     display: grid;
     grid-template-columns: auto auto ;
 
-
-.logo_hotel_subcaja{
-    display: flex;
-    margin:auto;
-    justify-content: center;
-    flex-wrap: nowrap;
-    margin-bottom: 20px;
-    align-items: center;
-
 .logo_hotel_reserva{
+    @include flex (none, center, center);
     display: flex;
-    justify-content: center;
     flex-wrap: nowrap;
-    align-items: center;
-
+    
+.logo_hotel_subcaja{
+    @extend .logo_hotel_reserva;
+    margin:auto;
+    margin-bottom: 20px;
 }
 
 }
@@ -26,24 +27,21 @@
 }
 
 .nav{
+    @include flex (none, space-between, center);
     display: grid;
     grid-template-columns: auto auto auto auto;
-    align-items: center;
-    justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: lighter;
-    background: cadetblue;
-    color: rgb(255, 255, 255);
+    background: map-get($map: $colores, $key: turquesa);
+    color: map-get($map: $colores, $key: blanco);
 
 .nav_a{
+    @extend .nav;
     display: flex;
-    justify-content: center;
-    color: black;
+    color: map-get($map: $colores, $key: negro);
     font-size:40px;
     font-style: oblique;
-    background: cadetblue;
-    color: rgb(255, 255, 255);
 }
 
 }
@@ -54,16 +52,15 @@
 .fondovideo{
     display: grid;
     grid-template-columns: auto;
-    background: black;
+    background: map-get($map: $colores, $key: negro);
 
 
 .video_back{
+    @include flex (none, center, center);
     display: flex;
     height: 100vh;
     width: 100vw;
-    align-items: center;
     margin: auto;
-    justify-content: center;
 }
 
 }
@@ -74,9 +71,7 @@
     grid-template-rows: auto auto;
 }
 .Grilla_titulos_y_parrafo1{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
+   @extend .Grilla_titulos_y_parrafo
 }
 
 .Titulos{
@@ -84,15 +79,13 @@
     justify-content: flex-start;
     font-size: 55px;
     font-family: 'Noto Sans', sans-serif; 
-    background: cadetblue;
-    color: rgb(255, 255, 255);
+    background:map-get($map: $colores, $key: turquesa);
+    color: map-get($map: $colores, $key: blanco);
 }
 
-.parrafo1{    
-    display: flex;
-    justify-content: flex-start;
+.parrafo1{   
+    @extend .Titulos; 
     font-size: 25px;
-    font-family: 'Noto Sans', sans-serif; 
     border: 25px cornsilk;
 }
 
@@ -111,9 +104,8 @@
     font-size: 30px;
 }
 .Titulohabitacion{
+    @include flex (column, center, none);
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     margin:10;
     border: 100px solid transparent;
 }
@@ -132,22 +124,20 @@
 }
 
 .Formulario{
+    @include flex (none, center, center);
     display: flex;
-    background-color: blanchedalmond;
+    background-color: map-get($map: $colores, $key: feb);
     margin-top: 100px;
-    justify-content: center;
     padding: 10px 50px 20px;
     margin: 10px;
-    align-items: center;
     font-family: 'Noto Sans', sans-serif;
     font-size: 20px;
 }
 
 .publicidad{
+    @include flex (none, center, center);
     display: flex;
-    justify-content: center;
     justify-items: center;
-    align-items: center;
 }
 
 
@@ -158,17 +148,16 @@
     *{
         padding: 0;
         margin: 0;
-        background: rgb(255, 228, 184);
+        background: map-get($map: $colores, $key: fe4);
         text-decoration:none;
     }
     .logo_hotel_subcaja{
+        @include flex (none, center, center);
         display: flex;
         width: 35%;
         margin:auto;
-        justify-content: center;
         flex-wrap: nowrap;
         margin-bottom: 20px;
-        align-items: center;
     }
 
     .logo_hotel_reserva{
@@ -181,8 +170,8 @@
         color: black;
         font-size:25px;
         font-style: oblique;
-        background: cadetblue;
-        color: rgb(255, 255, 255);
+        background: map-get($map: $colores, $key: turquesa);
+        color: map-get($map: $colores, $key: blanco);
     }
 
     .Titulos{
@@ -190,8 +179,8 @@
         justify-content: flex-start;
         font-size: 30px;
         font-family: 'Noto Sans', sans-serif; 
-        background: cadetblue;
-        color: rgb(255, 255, 255);
+        background: map-get($map: $colores, $key: turquesa);
+        color: map-get($map: $colores, $key: blanco);
     }
 
     .Subtitulos_e_imagenes{
@@ -211,16 +200,16 @@
         }
     
         .Titulohabitacion{
+            @include flex (column, center, none);
         display: inline;
-        justify-content: center;
-        flex-direction: column;
+
         margin:10px;
         border: 10px solid transparent;
         }
     
         .Imagen1{
         display: flex;
-        justify-content:   center ;
+        justify-content:center ;
         width: 70%;
         height: 50%;
         border-radius: 10%;
@@ -235,7 +224,7 @@
     *{
         padding: 0;
         margin: 0;
-        background: rgb(255, 228, 184);
+        background: map-get($map: $colores, $key: fe4);
         text-decoration:none;
     }
 
@@ -245,13 +234,12 @@
     }
 
     .logo_hotel_subcaja{
+        @include flex (none, center, center);
         display: flex;
         width: 35%;
         margin:auto;
-        justify-content: center;
         flex-wrap: nowrap;
         margin-bottom: 20px;
-        align-items: center;
     }
 
     .logo_hotel_reserva{
@@ -261,11 +249,11 @@
     .nav_a{
         display: flex;
         justify-content: center;
-        color: black;
+        color: map-get($map: $colores, $key: negro);
         font-size:15px;
         font-style: oblique;
-        background: cadetblue;
-        color: rgb(255, 255, 255);
+        background: map-get($map: $colores, $key: turquesa);
+        color: map-get($map: $colores, $key: blanco);
     }
 
     .fondovideo{
@@ -275,12 +263,11 @@
     }
     
     .video_back{
+        @include flex (none, center, center);
         display: flex;
         height: 100%;
         width: 100%;
-        align-items: center;
         margin: auto;
-        justify-content: center;
     }
 
     .Titulos{
@@ -288,8 +275,8 @@
         justify-content: flex-start;
         font-size: 15px;
         font-family: 'Noto Sans', sans-serif; 
-        background: cadetblue;
-        color: rgb(255, 255, 255);
+        background: map-get($map: $colores, $key: turquesa);
+        color: map-get($map: $colores, $key: blanco);
     }
 
     
@@ -318,9 +305,8 @@
     }
 
     .Titulohabitacion{
+        @include flex (column, center, none);
     display: inline;
-    justify-content: center;
-    flex-direction: column;
     margin:10px;
     border: 10px solid transparent;
     }
@@ -343,23 +329,21 @@
 }
 
 .Formulario{
+    @include flex (none, center, center);
     display: flex;
     background-color: blanchedalmond;
     margin-top: 100px;
-    justify-content: center;
     padding: 10px 30px 20px;
     margin: 10px;
-    align-items: center;
     font-family: 'Noto Sans', sans-serif;
     font-size: 10px;
 }
 
 .publicidad{
+    @include flex (none, center, center);
     display: flex;
     font-size: small;
-    justify-content: center;
     justify-items: center;
-    align-items: center;
 }
 /* El porque de dos es debido a que me quedan espacios en mi web y prefiero que este completa */
 
