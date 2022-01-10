@@ -81,27 +81,6 @@
   font-family: 'Noto Sans', sans-serif;
   border: 25px cornsilk; }
 
-.Subtitulos_e_imagenes {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: auto;
-  margin: 20px;
-  font-size: 30px;
-  font-family: 'Noto Sans', sans-serif;
-  font-style: italic; }
-
-.textotitulohabitacion {
-  display: flex;
-  justify-content: center;
-  font-size: 30px; }
-
-.Titulohabitacion {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 10;
-  border: 100px solid transparent; }
-
 .listadoactividades {
   font-size: 30px;
   font-family: 'Noto Sans', sans-serif;
